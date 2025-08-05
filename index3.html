@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="add">
+        <h1>Hello World</h1>
+    </div>
+    
+</body>
+<script>
+    //ข้อที่1การจัดการสินค้าคงคลัง: 
+    //สร้าง div ที่มี id="product-container" 
+    //สร้าง Array ของ Object ที่แต่ละ Object มีคุณสมบัติ name, price, และ stock 
+    //ใช้ JavaScript เพื่อสร้าง p Element สำหรับสินค้าแต่ละชิ้น โดยแสดงชื่อและราคา หาก stock มีค่าเป็น 0 ให้แสดงข้อความว่า "สินค้าหมด" และเปลี่ยนสีข้อความเป็นสีแดง 
+    const productContainer = document.createElement("div"); //คือการสร้าง div ใหม่ที่มี id เป็น "product-container"
+    productContainer.id = "product-container"; //คือการกำหนด id ให้กับ div  
+    document.body.appendChild(productContainer); //คือการเพิ่ม div ที่สร้างขึ้นไปยัง body ของเอกสาร HTML
+    const products = [ //คือการประกาศอาร์เรย์ของวัตถุ
+        { name: "Apple", price: 30, stock: 10 }, //คือการประกาศวัตถุที่มีคุณสมบัติ name, price และ stock
+        { name: "Banana", price: 20, stock: 0 }, //คือการประกาศวัตถุอีกตัวที่มีคุณสมบัติเดียวกัน
+        { name: "Orange", price: 25, stock: 5 }, //คือการประกาศวัตถุอีกตัวที่มีคุณสมบัติเดียวกัน
+        { name: "Grapes", price: 15, stock: 0 }, //คือการประกาศวัตถุอีกตัวที่มีคุณสมบัติเดียวกัน
+        { name: "Mango", price: 40, stock: 2 } //คือการประกาศวัตถุอีกตัวที่มีคุณสมบัติเดียวกัน
+    ];
+    products.forEach(product => { //คือการใช้เมธอด forEach() เพื่อวนลูปผ่านแต่ละวัตถุในอาร์เรย์ products
+        const p = document.createElement("p"); //คือการสร้าง p Element ใหม่
+        p.textContent = `${product.name} - $${product.price}`; //คือการกำหนดข้อความของ p Element เป็นชื่อและราคา
+        if (product.stock === 0) { //คือการตรวจสอบว่าคุณสมบัติ stock ของวัตถุเป็น 0 หรือไม่
+            p.textContent += " (สินค้าหมด)"; //คือการเพิ่มข้อความ "(สินค้าหมด)" หาก stock เป็น 0
+            p.style.color = "red"; //คือการเปลี่ยนสีข้อความเป็นสีแดง
+        }
+        productContainer.appendChild(p); //คือการเพิ่ม p Element ที่สร้างขึ้นไปยัง div ที่มี id เป็น "product-container"
+    });
+
+    //ข้อที่2การสร้างแกลเลอรีภาพขนาดเล็ก (Thumbnail): สร้าง div ที่มี id="gallery" และ img ที่มี id="main-image" ใน HTML 
+    //สร้าง Array ของ URL รูปภาพขนาดเล็กใน JavaScript ใช้ลูปเพื่อสร้าง img Element ขนาดเล็กจาก URL ใน Array และเพิ่มเข้าไปใน div#gallery 
+    //เมื่อผู้ใช้คลิกที่รูปภาพขนาดเล็ก ให้เปลี่ยน src ของ main-image เป็นรูปที่ถูกคลิก 
+    const gallery = document.createElement("div");
+    gallery.id = "gallery";
+    document.body.appendChild(gallery);
+
+    const mainImage = document.createElement("img");
+    mainImage.id = "main-image";
+    document.body.appendChild(mainImage);
+
+    const thumbnails = [
+        "thumbnail1.jpg",
+        "thumbnail2.jpg",
+        "thumbnail3.jpg"
+    ];
+
+    thumbnails.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.classList.add("thumbnail");
+        img.addEventListener("click", () => {
+            mainImage.src = src;
+        });
+        gallery.appendChild(img);
+    });
+
+    //การแสดงผลหน้าเพจแบบมีเงื่อนไข: 
+
+    //สร้าง div ที่มี id="user-profile" และ div ที่มี id="guest-message" 
+    //สร้างตัวแปร isLoggedIn เป็น true หรือ false 
+    //ใช้คำสั่ง if/else เพื่อควบคุมการแสดงผล: 
+    //ถ้า isLoggedIn เป็น true ให้แสดง div#user-profile และซ่อน div#guest-message 
+    //ถ้า isLoggedIn เป็น false ให้แสดง div#guest-message และซ่อน div#user-profile 
+    const userProfile = document.createElement("div");
+    userProfile.id = "user-profile";    
+    userProfile.textContent = "Welcome back, User!";
+    document.body.appendChild(userProfile);
+    const guestMessage = document.createElement("div");
+    guestMessage.id = "guest-message";  
+    guestMessage.textContent = "Please log in to access your profile.";
+    document.body.appendChild(guestMessage);
+    const isLoggedIn = true; //คือการประกาศตัวแปร isLoggedIn และกำหนดค่าเป็น true หรือ false
+    if (isLoggedIn) { //คือการตรวจสอบว่าตัวแปร isLoggedIn เป็น true หรือไม่
+        userProfile.style.display = "block"; //ถ้าใช่ ให้แสดง div#user-profile
+        guestMessage.style.display = "none"; //และซ่อน div#guest-message
+    } else {
+        userProfile.style.display = "none"; //ถ้าไม่ใช่ ให้ซ่อน div#user-profile
+        guestMessage.style.display = "block"; //และแสดง div#guest-message
+    }
+
+    //ข้อ4
+
+
+
+
+
+
+
+
+
+    </script>

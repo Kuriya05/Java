@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //ข้อที่1
+    function calculateArea(width, height) { //คือการประกาศฟังก์ชันชื่อ calculateArea ที่รับพารามิเตอร์ width และ height
+        return width * height; //คือการคำนวณพื้นที่โดยการคูณ width กับ height และส่งค่าผลลัพธ์กลับ
+    }
+    let width = 5; //คือการประกาศตัวแปรชื่อ width และกำหนดค่าเริ่มต้นเป็น 5
+    let height = 10; //คือการประกาศตัวแปรชื่อ height และกำหนดค่าเริ่มต้นเป็น 10
+
+
+    //ข้อที่2.การจัดการสินค้า: สร้างอาร์เรย์ชื่อ products ที่มีชื่อสินค้าอย่างน้อย 5 ชิ้น ใช้เมธอด push() 
+    // เพื่อเพิ่มสินค้าใหม่เข้าไปในอาร์เรย์ และใช้เมธอด pop() เพื่อลบสินค้าชิ้นสุดท้ายออก แสดงผลลัพธ์ของอาร์เรย์ในแต่ละขั้นตอน 
+    let products = ["Apple", "Banana", "Orange", "Grapes", "Mango"]; //คือการประกาศอาร์เรย์ชื่อ products ที่มีชื่อสินค้า 5 ชิ้น
+    console.log("Initial products:", products); //คือการแสดงผลลัพธ์ของอาร์เรย์ products ในขั้นตอนเริ่มต้น
+    products.push("Pineapple"); //คือการเพิ่มสินค้าใหม่ "Pineapple"
+    console.log("After push:", products); //คือการแสดงผลลัพธ์ของอาร์เรย์ products หลังจากการเพิ่มสินค้า
+    products.pop(); //คือการลบสินค้าชิ้นสุดท้ายออกจากอาร์เรย์
+    console.log("After pop:", products); //คือการแสดงผลลัพธ์ของอาร์เรย์ products หลังจากการลบสินค้า
+
+
+
+    //ข้อ3.สร้างอาร์เรย์ชื่อ names ที่มีชื่อคนอย่างน้อย 5 ชื่อ ใช้เมธอด filter() 
+    // เพื่อสร้างอาร์เรย์ใหม่ที่มีเฉพาะชื่อที่มีความยาวมากกว่า 5 ตัวอักษร
+    let names = ["Kuriya", "John", "Alice", "Bob", "Catherine"]; //คือการประกาศอาร์เรย์ชื่อ names ที่มีชื่อคน 5 ชื่อ
+    let longNames = names.filter(name => name.length > 5); //คือการใช้เมธอด filter() เพื่อสร้างอาร์เรย์ใหม่ที่มีเฉพาะชื่อที่มีความยาวมากกว่า 5 ตัวอักษร
+    console.log("Long names:", longNames); //คือการแสดงผลลัพธ์ของอาร์เรย์ longNames
+
+
+
+    //4.การแปลงค่าเงิน: สร้างอาร์เรย์ชื่อ prices ที่มีราคาสินค้าเป็นตัวเลข 10 จำนวน ใช้เมธอด map() 
+    // เพื่อสร้างอาร์เรย์ใหม่ที่แปลงราคาทั้งหมดให้เป็นราคาหลังหักส่วนลด 10% 
+    let prices = [29, 39, 49, 59, 69, 79, 89, 99, 199, 299]; //คือการประกาศอาร์เรย์ชื่อ prices ที่มีราคาสินค้าเป็นตัวเลข 10 จำนวน
+    let discountedPrices = prices.map(price => price * 0.9); //คือการใช้เมธอด map() เพื่อสร้างอาร์เรย์ใหม่ที่แปลงราคาทั้งหมดให้เป็นราคาหลังหักส่วนลด 10%
+    console.log("Discounted prices:", discountedPrices); //คือการแสดงผลลัพธ์ของอาร์เรย์ discountedPrices
+
+    //ข้อที่5.การคำนวณคะแนนเฉลี่ย: สร้างฟังก์ชันชื่อ getAverageScore 
+    //ที่รับอาร์เรย์ของคะแนนนักเรียน 10 คน ฟังก์ชันนี้ต้องคำนวณและส่งกลับค่าเฉลี่ยของคะแนนทั้งหมด ใช้เมธอด reduce() เพื่อหาผลรวมคะแนน? 
+    function getAverageScore(scores) { //คือการประกาศฟังก์ชันชื่อ getAverageScore ที่รับอาร์เรย์ของคะแนนนักเรียน
+        const total = scores.reduce((sum, score) => sum + score, 0); //คือการใช้เมธอด reduce() เพื่อหาผลรวมคะแนนทั้งหมด
+        return total / scores.length; //คือการคำนวณค่าเฉลี่ยโดยการหารผลรวมด้วยจำนวนคะแนน
+    }
+</script>

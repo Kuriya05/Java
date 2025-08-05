@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+        <h1>Hello World</h1>
+
+    </div>
+
+</body>
+<script>
+    console.log("Hello World"); //คือการแสดงผลข้อความในคอนโซลของเบราว์เซอร์ ปริ้นข้อความ
+    let name = "Kuriya"; //คือการประกาศตัวแปรชื่อ name และกำหนดค่าเริ่มต้นเป็น "Kuriya"
+    let age = 20; //คือการประกาศตัวแปรชื่อ age และกำหนดค่าเริ่มต้นเป็น 20
+    let isStudent = false; //คือการประกาศตัวแปรชื่อ isStudent และกำหนดค่าเริ่มต้นเป็น false
+
+
+    const major = "Computer Science"; //คือการประกาศตัวแปรคงที่ชื่อ major และกำหนดค่าเริ่มต้นเป็น "Computer Science"
+    const start = 0.00; //คือการประกาศตัวแปรคงที่ชื่อ start และกำหนดค่าเริ่มต้นเป็น 0.00
+    const end = 100.00; //คือการประกาศตัวแปรคงที่ชื่อ end และกำหนดค่าเริ่มต้นเป็น 100.00
+    const isActive = true; //คือการประกาศตัวแปรคงที่ชื่อ isActive และกำหนดค่าเริ่มต้นเป็น true
+    //ความแตกต่าง const คือค่าคงที่อย่าเปลี่ยน หากต้องการเปลี่ยนใช้lat 
+
+
+    //ข้อ1
+    const birthDate = 2005; //คือการประกาศตัวแปรคงที่ชื่อ birthDate และกำหนดค่าเริ่มต้นเป็น 2005
+    const currentYear = 2025; //คือการประกาศตัวแปรคงที่ชื่อ currentYear และกำหนดค่าเริ่มต้นเป็น 2025
+
+    const ageInYears = currentYear - birthDate; //คือการประกาศตัวแปรคงที่ชื่อ ageInYears และกำหนดค่าเริ่มต้นเป็นผลลัพธ์ของการลบ currentYear กับ birthDate
+    console.log(`Age: ${ageInYears}`); //age คือข้อความที่ฟริกไว้ ต่อด้วยการคำนวณอายุ
+
+    //ข้อ2
+    const student={
+        name: "Kuriya", //คือการประกาศคุณสมบัติชื่อ name ของวัตถุ student และกำหนดค่าเป็น "Kuriya"
+        score: 30, //ประกาศว่ามีคะแนนเก็บ30
+        isPass: false //ประกาศว่าผ่านหรือไม่ผ่านคือ false
+
+    };
+
+    const students =[
+        { name: "Kuriya", score: 20, isPass: false }, //คือการประกาศอาร์เรย์ชื่อ student ที่มีวัตถุหนึ่งตัวที่มีคุณสมบัติ name, score และ isPass
+        { name: "John", score: 75, isPass: true }, //คือการเพิ่มวัตถุอีกตัวที่มีคุณสมบัติเดียวกัน
+        { name: "Alice", score: 45, isPass: false } //คือการเพิ่มวัตถุอีกตัวที่มีคุณสมบัติเดียวกัน
+
+    ];
+    //หารายชื่อคนที่ขึ้นต้น้วย K
+    
+
+    //ปรับคะแนนให้เพิ่มขึ้นอีก10คะแนน
+
+
+
+    
+
+    
+
+
+    console.log(student);
+
+    if(student.score >= 50) { //คือการตรวจสอบว่าคะแนนของนักเรียนมากกว่าหรือเท่ากับ 50 หรือไม่
+        student.isPass = true; //ถ้าใช่ จะเปลี่ยนค่า isPass เป็น true
+    } else {
+        student.isPass = false; //ถ้าไม่ใช่ จะเปลี่ยนค่า isPass เป็น false
+    }
+    
+
+    //ข้อ...
+
+    const numbers = [1, 2, 3, 4, 5]; //กำหนดค่าเริ่มต้นเป็นอาร์เรย์ที่มีตัวเลข 1 ถึง 5 เป้นได้ทั้งตัวเลขและสตริง
+    console.log(numbers[2]);//คือการแสดงผลค่าที่ตำแหน่งที่ 2 ของอาร์เรย์ numbers ซึ่งจะได้ค่า 3
+    for (let index = 0; index <numbers.length; index++) { //คือการใช้ลูป for เพื่อวนซ้ำผ่านอาร์เรย์ numbers
+        console.log(numbers[index]); //คือการแสดงผลค่าที่ตำแหน่ง index ของอาร์เรย์ numbers ในแต่ละรอบของลูป
+    }
+
+    //ข้อ3 การแสดงผลตัวเลขคู่: เขียนลูป for เพื่อแสดงผลเฉพาะตัวเลขคู่ตั้งแต่ 0 ถึง 20
+    for (let i = 0; i <= 20; i++) {
+        if (i % 2 === 0) {
+            console.log(i);
+        }
+    }
+
+    //ข้อ4 การใช้ switch statement: สร้างตัวแปร weather กำหนดค่าเป็น "hot", "cold", หรือ "rainy" ใช้คำสั่ง switch เพื่อแสดงข้อความที่เหมาะสมกับแต่ละสภาพอากาศ 
+    const weather = "hot"; //คือการประกาศตัวแปรชื่อ weather และกำหนดค่าเริ่มต้นเป็น "hot"
+    switch (weather) { //คือการใช้คำสั่ง switch เพื่อตรวจสอบค่าของตัวแปร weather
+        case "hot": //ถ้า weather เป็น "hot"
+            console.log("It's a hot day!"); //แสดงข้อความว่า "It's a hot day!"
+            break; //ออกจาก switch
+        case "cold": //ถ้า weather เป็น "cold"
+            console.log("It's a cold day!"); //แสดงข้อความว่า "It's a cold day!"
+            break; //ออกจาก switch
+        case "rainy": //ถ้า weather เป็น "rainy"
+            console.log("It's a rainy day!"); //แสดงข้อความว่า "It's a rainy day!"
+            break; //ออกจาก switch
+        default: //ถ้าไม่ตรงกับกรณีใด ๆ ข้างต้น
+            console.log("Weather is unpredictable!"); //แสดงข้อความว่า "Weather is unpredictable!"
+    }
+
+
+    //ข้อ5 การหาผลรวมใน Array: สร้าง Array ของตัวเลข 10 ตัว เขียนลูป for เพื่อหาผลรวมของตัวเลขทั้งหมดใน Array และแสดงผลลัพธ์สุดท้าย 
+    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //คือการประกาศอาร์เรย์ชื่อ numbersArray ที่มีตัวเลขตั้งแต่ 1 ถึง 10
+    let sum = 0; //คือการประกาศตัวแปรชื่อ sum และกำหนดค่าเริ่มต้นเป็น 0 เพื่อใช้เก็บผลรวมของตัวเลขในอาร์เรย์
+    for (let i = 0; i < numbersArray.length; i++) { //คือการใช้ลูป for เพื่อวนซ้ำผ่านอาร์เรย์ numbersArray
+        sum += numbersArray[i]; //คือการเพิ่มค่าของตัวเลขที่ตำแหน่ง i ในอาร์เรย์ numbersArray ไปยังตัวแปร sum
+    }
+    console.log(`Sum: ${sum}`); //คือการแสดงผลค่าผลรวมของตัวเลขในอาร์เรย์ numbersArray
+
+
+    
+
+</script>
+</html>
